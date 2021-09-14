@@ -9,6 +9,7 @@ public class MenuUiHandler : MonoBehaviour
 {
   public Text highScore;
   private int score;
+  private string scorePlayerName;
   public Text playerName;
   // Start is called before the first frame update
   void Start()
@@ -16,9 +17,9 @@ public class MenuUiHandler : MonoBehaviour
     if (GameManager.Instance != null)
     {
       score = GameManager.Instance.highScore;
-      playerName.text = GameManager.Instance.playerName;
+      scorePlayerName = GameManager.Instance.highScorePlayerName;
     }
-    highScore.text = $"HighScore: {score}";
+    highScore.text = $"High Score: {score} Name: {scorePlayerName}";
   }
 
   public void StartNew()
@@ -29,7 +30,6 @@ public class MenuUiHandler : MonoBehaviour
 
   public void Exit()
   {
-    GameManager.Instance.Save();
 #if UNITY_EDITOR
     EditorApplication.ExitPlaymode();
 #else

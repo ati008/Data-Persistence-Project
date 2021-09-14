@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance;
   
   public int highScore;
+  public string highScorePlayerName;
   public string playerName;
 
   private void Awake()
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
       SaveData data = JsonUtility.FromJson<SaveData>(json);
 
       highScore = data.Score;
-      playerName = data.Name;
+      highScorePlayerName = data.Name;
     }
   }
 
